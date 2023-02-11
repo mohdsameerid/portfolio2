@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from '../assets/img/logo.svg';
+import logo from '../assets/img/download-removebg-preview.png';
+import github from '../assets/img/github.svg'
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
@@ -45,9 +46,9 @@ const Navbars = () => {
           </Nav>
           <span className="navbar-text">
             <div className="social-icon">
-              <a href="#"><img src={navIcon1} alt="" /></a>
-              <a href="#"><img src={navIcon2} alt="" /></a>
-              <a href="#"><img src={navIcon3} alt="" /></a>
+              <a href="https://www.linkedin.com//in/mohdsamir"><img src={navIcon1} alt="Linkedin" /></a>
+              <a href="https://github.com/mohdsameerid"><img src={github} alt="Github" /></a>
+              {/* <a href="#"><img src={navIcon3} alt="" /></a> */}
             </div>
             <button className="vvd" onClick={() => console.log('connect')}><span>Let’s Connect</span></button>
           </span>

@@ -3,6 +3,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import { useState, useEffect } from "react";
+import 'animate.css';
+import TrackVisibility from 'react-on-screen';
+
 
 export const Banner = () => {
 
@@ -11,7 +14,7 @@ export const Banner = () => {
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(300 - Math.random() * 100);
     const [index, setIndex] = useState(1);
-    const toRotate = [ "Web Developer", "Web Designer", "UI/UX Designer" ];
+    const toRotate = [ "Web Developer", "Software Engineer", "Front-end Developer" ];
     const period = 2000;
   
     useEffect(() => {
@@ -51,14 +54,26 @@ export const Banner = () => {
     <section className="banner" id="home">
       <Container>
         <Row className="aligh-items-center">
-          <Col xs={12} md={6} xl={7} className="wow fadeIn" dataWowDuration="1.5s">
-            <span className="tagline">Welcome to my Portfolio</span>
-            <h1>{`Hi! I'm Samir`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'> <span className="wrap">{text}</span> </span></h1>
-              <p>Have skills in Web development role, looking for a software developer position in a fast-growing company to utilize my technical skills and working knowledge of software applications, development and design.</p>
-              <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+        <Col xs={12} md={6} xl={7}>
+            <TrackVisibility>
+              {({ isVisible }) =>
+              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                <span className="tagline">Welcome to my Portfolio</span>
+                <h1>{`Hi! I'm Samir`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Front-end Developer", "Software Engineer" ]'><span className="wrap">{text}</span></span></h1>
+                  <p> Skilled in HTML, CSS, Javascript & React, looking for a software developer position in a fast-growing company to utilize my technical skills and working knowledge of software applications, development and design.</p>
+                  <p> Email: mohdsamir413@gmail.com </p>
+                  {/* <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button> */}
+              </div>}
+            </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={5} className="wow zoomIn" dataWowDuration="1.5s">
-            <img src={headerImg} alt="Header Img"/>
+          
+          <Col xs={12} md={6} xl={5}>
+            <TrackVisibility>
+              {({ isVisible }) =>
+                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
+                  <img src={headerImg} alt="Header Img"/>
+                </div>}
+            </TrackVisibility>
           </Col>
         </Row>
       </Container>
